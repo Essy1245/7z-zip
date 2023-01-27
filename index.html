@@ -4,6 +4,14 @@
   <title>File Converter</title>
   <script src="FileSaver.min.js"></script>
   <script src="jszip.min.js"></script>
+  </head>
+<body>
+  <form>
+    <input type="file" id="fileInput" accept=".7z">
+    <br>
+    <button type="button" id="convertBtn">Convert</button>
+  </form>
+</body>
   <script>
   // Get references to the input file and the convert button
   var fileInput = document.getElementById("fileInput");
@@ -38,14 +46,4 @@
     alert("File conversion successful!");
   });
 </script>
-
-
-</head>
-<body>
-  <form>
-    <input type="file" id="fileInput" accept=".7z">
-    <br>
-    <button type="button" id="convertBtn">Convert</button>
-  </form>
-</body>
 </html>
