@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Converter</title>
+  <script src="https://raw.githubusercontent.com/Stuk/jszip/main/dist/jszip.min.js"></script>
+  <script>
+  // Get references to the input file and the convert button
+  var fileInput = document.getElementById("fileInput");
+  var convertBtn = document.getElementById("convertBtn");
+
+  // Add an event listener to the convert button
+  convertBtn.addEventListener("click", function() {
+    // Get the file from the input
+    var file = fileInput.files[0];
+
+    // Check if a file was selected
+    if (!file) {
+      alert("Please select a file to convert.");
+      return;
+    }
+
+    // Perform the file conversion here
+    // (using a library such as JSZip or FileSaver.js)
+
+    // Create a new zip file with the contents of the 7z file
+    var zip = new JSZip();
+    // add the contents of the 7z file to the zip
+    zip.file("file.txt", file);
+    // Generate the zip file and trigger the browser to save it
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        // see FileSaver.js
+        saveAs(content, "converted.zip");
+    });
+t
+    //Show a message indicating that the conversion was successful
+    alert("File conversion successful!");
+  });
+</script>
+
+
+</head>
+<body>
+  <form>
+    <input type="file" id="fileInput" accept=".7z">
+    <br>
+    <button type="button" id="convertBtn">Convert</button>
+  </form>
+</body>
+</html>
